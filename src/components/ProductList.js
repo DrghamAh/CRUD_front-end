@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -24,6 +25,9 @@ class ProductList extends React.Component {
   render() {
     return (
       <>
+        <div className="input-group">
+          <Link to="/products/add">Add product</Link>
+        </div>
         <table className="table">
           <thead>
             <tr>

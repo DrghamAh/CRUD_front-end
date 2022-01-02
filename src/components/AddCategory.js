@@ -20,7 +20,7 @@ class AddCategory extends React.Component {
   }
 
   handleFormSubmit() {
-    axios.post('http://localhost:5000/categories/add', {
+    axios.post('http://localhost:5000/categories/create', {
       name : this.state.name,
     }).then((response) => {
       console.log(response);
