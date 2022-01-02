@@ -10,11 +10,13 @@ class AddProduct extends React.Component {
       name : '',
       price : 0,
       quantity : 0,
+      category_id : 0,
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
+    this.handleCategoryIdChange = this.handleCategoryIdChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
@@ -46,11 +48,18 @@ class AddProduct extends React.Component {
     });
   }
 
+  handleCategoryIdChange(e) {
+    this.setState({
+      category_id : e.target.value
+    });
+  }
+
   handleFormSubmit() {
     axios.post('http://localhost:5000/products/create', {
       name : this.state.name,
       price : this.state.price,
       quantity : this.state.quantity,
+      category_id : this.state.category_id,
     }).then((response) => {
       console.log(response);
     }).catch((err) => {
@@ -76,9 +85,9 @@ class AddProduct extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="category">Category</label>
-            <select name="category_id">
+            <select name="category_id" onChange={this.handleCategoryIdChange}>
               <option>Select</option>
-              {this.state.categories.map(category => <option value={category.id}>{category.name}</option>)}
+              {this.state.categories.map(category => <option value={category._id}>{category.name}</option>)}
             </select>
           </div>
           <button type="submit" className="btn btn-primary">Add</button>

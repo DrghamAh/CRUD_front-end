@@ -46,8 +46,8 @@ class ProductList extends React.Component {
                 <td>{product.price}</td>
                 <td>{product.quantity}</td>
                 <td>
-                  <a href="#" className="btn btn-primary"><i className="fas fa-pen"></i></a>
-                  <a href="#" className="btn btn-danger"><i className="fas fa-trash"></i></a>
+                  <a href="#" className="btn btn-primary">Edit</a>
+                  <a href="#" className="btn btn-danger">Delete</a>
                 </td>
               </tr>
             ))}
